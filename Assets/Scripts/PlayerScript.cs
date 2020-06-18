@@ -36,6 +36,7 @@ public class PlayerScript : MonoBehaviour
     private void OnMovePerformed(InputAction.CallbackContext obj)
     {
         direction = obj.ReadValue<Vector2>();
+        Debug.Log("salut toi !");
     }
 
     private void OnMoveCanceled(InputAction.CallbackContext obj)
