@@ -25,7 +25,7 @@ public class PlayerScript : MonoBehaviour
         inputs.Player.Move.canceled += OnMoveCanceled;
 
 
-        //inputs.Player.Shoot.performed += OnShootPerformed;
+        inputs.Player.Shoot.performed += OnShootPerformed;
 
         myRigidbody = GetComponent<Rigidbody2D>();
         mainCam = Camera.main;
@@ -50,6 +50,11 @@ public class PlayerScript : MonoBehaviour
     private void OnMoveCanceled(InputAction.CallbackContext obj)
     {
         StickDirection = Vector2.zero;
+    }
+
+    private void OnShootPerformed(InputAction.CallbackContext obj)
+    {
+        Instantiate(projectile, transform.position, Quaternion.identity);
     }
 
     private void ClampPosition()
@@ -79,5 +84,14 @@ public class PlayerScript : MonoBehaviour
             //z = oldPosition.z
         };
         myRigidbody.position = newPosition;
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        // Si on rentre dans un ennemi, on lance la fonction Die()
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            //Die();
+        }
     }
 }
