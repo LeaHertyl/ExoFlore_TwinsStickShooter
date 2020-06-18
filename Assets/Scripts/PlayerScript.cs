@@ -10,9 +10,9 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private GameObject projectile;
 
     private Vector2 direction;
-    private Rigidbody myRigidbody;
+    private Rigidbody2D myRigidbody;
     private PlayerBehaviour inputs;
-    private Camera mainCam;
+
 
     // Start is called before the first frame update
     void Start()
@@ -25,21 +25,22 @@ public class PlayerScript : MonoBehaviour
 
         //inputs.Player.Shoot.performed += OnShootPerformed;
 
-        myRigidbody = GetComponent<Rigidbody>();
-        mainCam = Camera.main;
+        myRigidbody = GetComponent<Rigidbody2D>();
+
     }
     private void FixedUpdate()
     {
-        
+        myRigidbody.velocity = direction * (speed * Time.fixedDeltaTime);
     }
 
     private void OnMovePerformed(InputAction.CallbackContext obj)
     {
-
+        direction = obj.ReadValue<Vector2>();
     }
 
     private void OnMoveCanceled(InputAction.CallbackContext obj)
     {
-
+        direction = Vector2.zero;
     }
+
 }
