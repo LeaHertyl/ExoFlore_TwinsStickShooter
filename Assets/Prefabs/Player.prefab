@@ -116,6 +116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99aae5d73ddd568448aa32afdf419aa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  speed: 100
+  MaxSpeed: 1000
   projectile: {fileID: 5083069299696258408, guid: b7ebbdd19ed2fac498e43afd23f90147,
     type: 3}

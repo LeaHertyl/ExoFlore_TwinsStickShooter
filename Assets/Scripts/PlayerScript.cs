@@ -7,9 +7,10 @@ using UnityEngine.InputSystem;
 public class PlayerScript : MonoBehaviour
 {
     [SerializeField] private float speed;
+    [SerializeField] private float MaxSpeed;
     [SerializeField] private GameObject projectile;
 
-    private Vector2 direction;
+    private Vector2 StickDirection;
     private Rigidbody2D myRigidbody;
     private PlayerBehaviour inputs;
 
@@ -32,6 +33,9 @@ public class PlayerScript : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        
+        var direction = new Vector2(StickDirection.x, StickDirection.y);
+
         myRigidbody.velocity = direction * (speed * Time.fixedDeltaTime);
 
         ClampPosition();
@@ -39,13 +43,13 @@ public class PlayerScript : MonoBehaviour
 
     private void OnMovePerformed(InputAction.CallbackContext obj)
     {
-        direction = obj.ReadValue<Vector2>();
-        Debug.Log("salut toi !");
+        StickDirection = obj.ReadValue<Vector2>();
+        Debug.Log(StickDirection + ""); //ca fonctionne
     }
 
     private void OnMoveCanceled(InputAction.CallbackContext obj)
     {
-        direction = Vector2.zero;
+        StickDirection = Vector2.zero;
     }
 
     private void ClampPosition()
