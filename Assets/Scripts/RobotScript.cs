@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class RobotScript : MonoBehaviour
 {
-    [SerializeField] private float speed;
+    private float DistanceDelta = 1;
+
     private Rigidbody2D myRigidbody;
 
-    public Transform playerGameObject;
+    private Vector2 SpeedVector;
+
+    private Transform playerGameObject;
     private Vector2 Target;
+    private Vector2 Robotposition;
 
     private Camera mainCam;
 
@@ -23,12 +27,18 @@ public class RobotScript : MonoBehaviour
         //var playerScript = playerGameObject.GetComponent<PlayerScript>();
 
         mainCam = Camera.main;
+
     }
 
     private void FixedUpdate()
     {
+        var CalculSpeed = DistanceDelta * Time.fixedDeltaTime;
+        Robotposition = gameObject.transform.position;
+
         Target = new Vector2(playerGameObject.position.x, playerGameObject.position.y);
-        myRigidbody.velocity = Vector2.MoveTowards(Target, transform.position, speed * Time.fixedDeltaTime);
+        //myRigidbody.velocity = Vector2.MoveTowards(Target, Robotposition, CalculSpeed);
+
+        transform.position = Vector2.MoveTowards(Robotposition, Target, CalculSpeed);
 
         ClampPosition();
     }
