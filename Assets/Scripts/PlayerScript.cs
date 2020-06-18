@@ -91,7 +91,12 @@ public class PlayerScript : MonoBehaviour
         // Si on rentre dans un ennemi, on lance la fonction Die()
         if (other.gameObject.CompareTag("Enemy"))
         {
-            //Die();
+            Die();
         }
+    }
+
+    private void Die()
+    {
+        Destroy(gameObject);
     }
 }
