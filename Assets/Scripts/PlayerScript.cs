@@ -16,6 +16,8 @@ public class PlayerScript : MonoBehaviour
 
     private Camera mainCam;
 
+    //public UnityEvent OnDeath;
+
     // Start is called before the first frame update
     void Start()
     {
