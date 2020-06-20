@@ -71,4 +71,24 @@ public class RobotScript : MonoBehaviour
         };
         myRigidbody.position = newPosition;
     }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        // Si on rentre dans un ennemi, on lance la fonction Die()
+        if (other.gameObject.CompareTag("Player"))
+        {
+            //Debug.Log("collision !");
+            Die();
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Die();
+    }
+
+    private void Die()
+    {
+        Destroy(gameObject);
+    }
 }

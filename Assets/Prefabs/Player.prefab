@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7533982430621775785}
   - component: {fileID: 7533982430621775786}
   - component: {fileID: 7533982430621775784}
+  - component: {fileID: 7927007847968190395}
   - component: {fileID: 7533982430621775787}
   m_Layer: 0
   m_Name: Player
@@ -104,6 +105,32 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!61 &7927007847968190395
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7533982430621775780}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.09979212, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.8125, y: 0.671875}
+    newSize: {x: 0.8125, y: 0.671875}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.61291575, y: 0.671875}
+  m_EdgeRadius: 0
 --- !u!114 &7533982430621775787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,3 +147,4 @@ MonoBehaviour:
   MaxSpeed: 1000
   projectile: {fileID: 5083069299696258408, guid: b7ebbdd19ed2fac498e43afd23f90147,
     type: 3}
+  VecteurVisee: {x: 0, y: 0}

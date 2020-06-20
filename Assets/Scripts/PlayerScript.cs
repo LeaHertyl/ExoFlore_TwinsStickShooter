@@ -16,7 +16,7 @@ public class PlayerScript : MonoBehaviour
 
     private Vector2 PlayerPosition;
     private Vector2 MousePosition;
-    private Vector2 VecteurVisee;
+    public Vector2 VecteurVisee;
     private float AngleVise;
 
     private float aim_angle;
@@ -48,6 +48,7 @@ public class PlayerScript : MonoBehaviour
         myRigidbody = GetComponent<Rigidbody2D>();
         mainCam = Camera.main;
 
+        aim_angle = 0.0f;
     }
     private void FixedUpdate()
     {
@@ -86,7 +87,7 @@ public class PlayerScript : MonoBehaviour
     private void OnTurnPerformed(InputAction.CallbackContext obj)
     {
         MousePosition = obj.ReadValue<Vector2>();
-        Debug.Log(MousePosition + ""); //ca fonctionne
+        //Debug.Log(MousePosition + ""); //ca fonctionne
     }
 
     private void OnTurnCanceled(InputAction.CallbackContext obj)
@@ -123,11 +124,12 @@ public class PlayerScript : MonoBehaviour
         myRigidbody.position = newPosition;
     }
 
-    private void OnCollisionEnter(Collision other)
+    private void OnCollisionEnter2D(Collision2D other)
     {
         // Si on rentre dans un ennemi, on lance la fonction Die()
         if (other.gameObject.CompareTag("Enemy"))
         {
+            //Debug.Log("collision");
             Die();
         }
     }
