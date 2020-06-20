@@ -143,6 +143,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 485880ee865dac64595e7acd1d2ebb7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 50
+  speed: 500
   WinGameOverCanvas: {fileID: 1400850802532786038, guid: 74649cc9b3529e5459dfe5cc3d25b70e,
     type: 3}

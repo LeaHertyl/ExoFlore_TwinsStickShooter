@@ -7,32 +7,38 @@ public class LoadingScene : MonoBehaviour
 {
     [SerializeField] private GameObject Loading_Screen;
 
-    public void LoadScene(string SceneToLoad) // permet de choisir la scene que nous voulons charger lors de l'activation du bouton
+    public void LoadScene(string SceneToLoad)
     {
         //Debug.Log("Coucou");
 
-        StartCoroutine(Load(SceneToLoad)); //commence le chargement de la scene en parallèle
+        StartCoroutine(Load(SceneToLoad));
     }
 
-    private IEnumerator Load(string SceneToLoad)  //permet de lancer les différentes animations faites
+    private IEnumerator Load(string SceneToLoad)
     {
-        var Loading_ScreenInstance = Instantiate(Loading_Screen); // on instancie le canvas sur laquelle se trouve l'animation
-        DontDestroyOnLoad(Loading_ScreenInstance);  // on lui demande de ne pas supprimer le canvas apres avoir joué l'anim
-        var loadingAnimator = Loading_ScreenInstance.GetComponent<Animator>(); // on recupere le composant animator dans le canvas
-        var animationTime = loadingAnimator.GetCurrentAnimatorStateInfo(0).length;  //cela calcul le temps de l'animation
-        var loading = SceneManager.LoadSceneAsync(SceneToLoad); //permet de charger a scene en arriere plan pendant l'animation
+        var Loading_ScreenInstance = Instantiate(Loading_Screen);
+        DontDestroyOnLoad(Loading_ScreenInstance); 
+        var loadingAnimator = Loading_ScreenInstance.GetComponent<Animator>(); 
+        var animationTime = loadingAnimator.GetCurrentAnimatorStateInfo(0).length;
+        var loading = SceneManager.LoadSceneAsync(SceneToLoad);
 
-        loading.allowSceneActivation = false;  // cela descative le canvas où se trouve l'animation
+        loading.allowSceneActivation = false; 
 
-        while (!loading.isDone) // tant que la scene n'a pas atteint 100% de chargement, elle ne lance pas la scene
+        while (!loading.isDone)
         {
+            //je sais que normalement c'est >= 0.9f mais quand je le met ça bloque à la fin de la première animation, ça ne lance pas la 2e
+            //du coup le canvas ne se détruit pas et le jeu se joue quand même derrière
+            //donc je laisse ça dans un soucis de lisibilité du jeu quand tu le vas le tester
+            //je crois que je viens d'où vient l'erreur mais j'ai le cerveau en compote, donc j'arrive pas du tout à la corriger, je laisse comme ça désolé ^^
+            //Mais je crois que j'ai à peu près bien fait tout le reste, merci d'avoir prit de ton temps ajd pour m'aider ^^
+
             if (loading.progress <= 0.9f)
             {
                 loading.allowSceneActivation = true;
                 loadingAnimator.SetTrigger("EndLoading");
             }
 
-            yield return new WaitForSeconds(animationTime); // c'est le temps d'attente que toutes les anims soient jouées
+            yield return new WaitForSeconds(animationTime);
         }
 
     }
