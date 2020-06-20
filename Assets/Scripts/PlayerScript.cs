@@ -61,7 +61,7 @@ public class PlayerScript : MonoBehaviour
         PlayerPosition = new Vector2(transform.position.x, transform.position.y);
 
         VecteurVisee = (MousePosition - PlayerPosition).normalized;
-        Debug.Log(VecteurVisee + "");
+        //Debug.Log(VecteurVisee + "");
         
         aim_angle = Mathf.Atan2(VecteurVisee.y, VecteurVisee.x) * Mathf.Rad2Deg;
         gameObject.transform.rotation = Quaternion.AngleAxis(aim_angle, Vector3.forward);
