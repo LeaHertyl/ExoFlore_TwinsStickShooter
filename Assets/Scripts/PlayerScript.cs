@@ -10,11 +10,25 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private float MaxSpeed;
     [SerializeField] private GameObject projectile;
 
-    private Vector2 StickDirection;
+    private Vector2 LeftStickDirection;
     private Rigidbody2D myRigidbody;
     private PlayerBehaviour inputs;
 
+    private Vector2 PlayerPosition;
+    private Vector2 MousePosition;
+    private Vector2 VecteurVisee;
+    private float AngleVise;
+
+    private float aim_angle;
+
+    private Transform magique;
+
+    private Vector3 point;
+    Event currentEvent;
+    //private Vector2 mousepos;
+
     private Camera mainCam;
+
 
     //public UnityEvent OnDeath;
 
@@ -26,8 +40,10 @@ public class PlayerScript : MonoBehaviour
         inputs.Player.Move.performed += OnMovePerformed;
         inputs.Player.Move.canceled += OnMoveCanceled;
 
-
         inputs.Player.Shoot.performed += OnShootPerformed;
+
+        inputs.Player.Turn.performed += OnTurnPerformed;
+        inputs.Player.Turn.canceled += OnTurnCanceled;
 
         myRigidbody = GetComponent<Rigidbody2D>();
         mainCam = Camera.main;
@@ -35,28 +51,47 @@ public class PlayerScript : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        
-        var direction = new Vector2(StickDirection.x, StickDirection.y);
+        MousePosition = mainCam.ScreenToWorldPoint(MousePosition);
+
+        var direction = new Vector2(LeftStickDirection.x, LeftStickDirection.y);
 
         myRigidbody.velocity = direction * (speed * Time.fixedDeltaTime);
+
+        PlayerPosition = new Vector2(transform.position.x, transform.position.y);
+
+        VecteurVisee = (MousePosition - PlayerPosition).normalized;
+        
+        aim_angle = Mathf.Atan2(VecteurVisee.y, VecteurVisee.x) * Mathf.Rad2Deg;
+        gameObject.transform.rotation = Quaternion.AngleAxis(aim_angle, Vector3.forward);
 
         ClampPosition();
     }
 
     private void OnMovePerformed(InputAction.CallbackContext obj)
     {
-        StickDirection = obj.ReadValue<Vector2>();
-        Debug.Log(StickDirection + ""); //ca fonctionne
+        LeftStickDirection = obj.ReadValue<Vector2>();
+        //Debug.Log(LeftStickDirection + ""); //ca fonctionne
     }
 
     private void OnMoveCanceled(InputAction.CallbackContext obj)
     {
-        StickDirection = Vector2.zero;
+        LeftStickDirection = Vector2.zero;
     }
 
     private void OnShootPerformed(InputAction.CallbackContext obj)
     {
         Instantiate(projectile, transform.position, Quaternion.identity);
+    }
+
+    private void OnTurnPerformed(InputAction.CallbackContext obj)
+    {
+        MousePosition = obj.ReadValue<Vector2>();
+        Debug.Log(MousePosition + ""); //ca fonctionne
+    }
+
+    private void OnTurnCanceled(InputAction.CallbackContext obj)
+    {
+
     }
 
     private void ClampPosition()

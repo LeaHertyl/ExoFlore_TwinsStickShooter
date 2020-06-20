@@ -7,6 +7,7 @@ public class MissileScript : MonoBehaviour
     [SerializeField] private float speed;
     private Rigidbody2D myRigidbody;
 
+
     // Start is called before the first frame update
     void Start()
     {
