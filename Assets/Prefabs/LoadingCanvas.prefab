@@ -101,6 +101,7 @@ GameObject:
   - component: {fileID: 8735541249464004634}
   - component: {fileID: 8735541249464004613}
   - component: {fileID: 8735541249464004633}
+  - component: {fileID: -8968622603078254197}
   m_Layer: 5
   m_Name: LoadingCanvas
   m_TagString: Untagged
@@ -207,6 +208,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-8968622603078254197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8735541249464004612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 718452c86f6114e4b96e33388b7ce372, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8735541249984933193
 GameObject:
   m_ObjectHideFlags: 0

@@ -26,7 +26,7 @@ public class LoadingScene : MonoBehaviour
 
         while (!loading.isDone) // tant que la scene n'a pas atteint 100% de chargement, elle ne lance pas la scene
         {
-            if (loading.progress >= 0.9f)
+            if (loading.progress <= 0.9f)
             {
                 loading.allowSceneActivation = true;
                 loadingAnimator.SetTrigger("EndLoading");
@@ -36,5 +36,5 @@ public class LoadingScene : MonoBehaviour
         }
 
     }
-
+ 
 }

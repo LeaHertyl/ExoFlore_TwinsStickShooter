@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1400850802532786040}
   - component: {fileID: 1400850802532786039}
   - component: {fileID: 3525491644664123680}
+  - component: {fileID: -4402937908351389339}
   m_Layer: 5
   m_Name: WinGameOver
   m_TagString: Untagged
@@ -112,6 +113,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 894c5efe111e0c54a99c6e8ff54f6ec2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-4402937908351389339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400850802532786038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6656ac197c0eb144c98acfebf970741f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Loading_Screen: {fileID: 8735541249464004612, guid: 6e7a954ed7d494c41ad768b253cb0c2b,
+    type: 3}
 --- !u!1 &1400850802764069632
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,8 +237,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 0.0000076293945, y: -0.0000076293945}
+  m_SizeDelta: {x: 431.3069, y: 181.55934}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1400850803230408721
 CanvasRenderer:
@@ -280,8 +295,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 80
+  m_fontSizeBase: 80
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -436,8 +451,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 69
+  m_fontSizeBase: 69
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -537,7 +552,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 478.0921, y: 205.96532}
   m_Pivot: {x: 1, y: 0}
 --- !u!222 &1400850804137539691
 CanvasRenderer:
@@ -619,14 +634,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: ReloadScene
-        m_Mode: 1
+      - m_Target: {fileID: -4402937908351389339}
+        m_MethodName: LoadScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: SampleScene
           m_BoolArgument: 0
         m_CallState: 2
