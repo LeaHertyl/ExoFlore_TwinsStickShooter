@@ -57,7 +57,6 @@ public class PlayerScript : MonoBehaviour
         MousePosition = mainCam.ScreenToWorldPoint(MousePosition);
 
         var direction = new Vector2(LeftStickDirection.x, LeftStickDirection.y);
-
         myRigidbody.velocity = direction * (speed * Time.fixedDeltaTime);
 
         PlayerPosition = new Vector2(transform.position.x, transform.position.y);
