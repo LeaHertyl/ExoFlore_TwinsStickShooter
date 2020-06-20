@@ -123,8 +123,8 @@ public class @PlayerBehaviour : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""f6e28ab4-832a-43b2-acb2-ed6fecbb9eb0"",
-                    ""path"": ""<Mouse>/leftButton"",
+                    ""id"": ""9a3d1200-8335-4ca8-b4ce-5bf28c6cff30"",
+                    ""path"": ""<Gamepad>/leftStickPress"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -134,8 +134,8 @@ public class @PlayerBehaviour : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""9a3d1200-8335-4ca8-b4ce-5bf28c6cff30"",
-                    ""path"": ""<Gamepad>/leftStickPress"",
+                    ""id"": ""529669a0-f4c3-4e2b-9b83-478591732db5"",
+                    ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

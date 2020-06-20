@@ -54,7 +54,6 @@ public class PlayerScript : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        MousePosition = mainCam.ScreenToWorldPoint(MousePosition);
 
         var direction = new Vector2(LeftStickDirection.x, LeftStickDirection.y);
         myRigidbody.velocity = direction * (speed * Time.fixedDeltaTime);
@@ -62,6 +61,7 @@ public class PlayerScript : MonoBehaviour
         PlayerPosition = new Vector2(transform.position.x, transform.position.y);
 
         VecteurVisee = (MousePosition - PlayerPosition).normalized;
+        Debug.Log(VecteurVisee + "");
         
         aim_angle = Mathf.Atan2(VecteurVisee.y, VecteurVisee.x) * Mathf.Rad2Deg;
         gameObject.transform.rotation = Quaternion.AngleAxis(aim_angle, Vector3.forward);
@@ -89,6 +89,7 @@ public class PlayerScript : MonoBehaviour
     {
         MousePosition = obj.ReadValue<Vector2>();
         //Debug.Log(MousePosition + ""); //ca fonctionne
+        MousePosition = mainCam.ScreenToWorldPoint(MousePosition);
     }
 
     private void OnTurnCanceled(InputAction.CallbackContext obj)
