@@ -3,15 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class RestartButton : MonoBehaviour
 {
     [SerializeField] private GameObject WinCanvas;
     [SerializeField] private GameObject LoseCanvas;
+
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<Button>().onClick.AddListener(ReloadScene);
+        LoseCanvas.GetComponent<Button>().onClick.AddListener(ReloadScene);
+        WinCanvas.GetComponent<Button>().onClick.AddListener(ReloadScene);
     }
 
     // Update is called once per frame
