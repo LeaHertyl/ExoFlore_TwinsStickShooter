@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class RestartButton : MonoBehaviour
 {
+    [SerializeField] private GameObject WinCanvas;
+    [SerializeField] private GameObject LoseCanvas;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,8 +20,10 @@ public class RestartButton : MonoBehaviour
         
     }
 
-    private void ReloadScene()
+    public void ReloadScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        //Destroy(WinCanvas);
+        //Destroy(LoseCanvas);
     }
 }

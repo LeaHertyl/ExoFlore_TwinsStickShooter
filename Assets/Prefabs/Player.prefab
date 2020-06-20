@@ -147,4 +147,6 @@ MonoBehaviour:
   MaxSpeed: 1000
   projectile: {fileID: 5083069299696258408, guid: b7ebbdd19ed2fac498e43afd23f90147,
     type: 3}
+  LoseGameOverCanvas: {fileID: 7187901696061609345, guid: a9748679be869ea4da9ab50da124db3e,
+    type: 3}
   VecteurVisee: {x: 0, y: 0}
