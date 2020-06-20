@@ -10,6 +10,8 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private float MaxSpeed;
     [SerializeField] private GameObject projectile;
 
+    [SerializeField] private GameObject LoseGameOverCanvas;
+
     private Vector2 LeftStickDirection;
     private Rigidbody2D myRigidbody;
     private PlayerBehaviour inputs;
@@ -137,5 +139,6 @@ public class PlayerScript : MonoBehaviour
     private void Die()
     {
         Destroy(gameObject);
+        Instantiate(LoseGameOverCanvas);
     }
 }

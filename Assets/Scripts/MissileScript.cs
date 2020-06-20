@@ -7,6 +7,8 @@ public class MissileScript : MonoBehaviour
     [SerializeField] private float speed;
     private Rigidbody2D myRigidbody;
 
+    [SerializeField] private GameObject WinGameOverCanvas;
+
     private Vector2 VecteurMove;
 
 
@@ -40,5 +42,6 @@ public class MissileScript : MonoBehaviour
     private void Die()
     {
         Destroy(gameObject);
+        Instantiate(WinGameOverCanvas);
     }
 }
